@@ -1,6 +1,6 @@
 # AI-Accelerated Development: A Guide to Vibe Coding
 
-This presentation, `ai_development_presentation.html`, showcases a paradigm shift in software development, demonstrating how our team can achieve a 15x efficiency multiplier by embracing an AI-assisted workflow.
+This presentation, `index.html`, showcases a paradigm shift in software development, demonstrating how our team can achieve a 15x efficiency multiplier by embracing an AI-assisted workflow.
 
 ## The Concept: What is "Vibe Coding"?
 
@@ -21,7 +21,7 @@ The central argument is the transition from a **64-100 engineer-week** project t
 
 ## How to View the Presentation
 
-Simply open the `ai_development_presentation.html` file in any modern web browser.
+Simply open the `index.html` file in any modern web browser.
 
 ---
 
