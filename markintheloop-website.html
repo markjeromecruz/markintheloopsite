@@ -1,0 +1,856 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mark in the Loop - AI Made Simple</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-blue: #2563eb;
+            --secondary-purple: #7c3aed;
+            --accent-green: #10b981;
+            --dark-bg: #0f172a;
+            --light-bg: #f8fafc;
+            --text-dark: #1e293b;
+            --text-light: #64748b;
+            --card-bg: #ffffff;
+            --border-color: #e2e8f0;
+        }
+
+        body {
+            font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background: linear-gradient(135deg, var(--light-bg) 0%, #e0f2fe 100%);
+        }
+
+        /* Header */
+        .header {
+            background: var(--card-bg);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--primary-blue), var(--secondary-purple));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-blue);
+        }
+
+        /* Hero Section */
+        .hero {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, var(--primary-blue), var(--secondary-purple));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero .tagline {
+            font-size: 1.25rem;
+            color: var(--text-light);
+            margin-bottom: 2rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-button {
+            background: linear-gradient(135deg, var(--primary-blue), var(--secondary-purple));
+            color: white;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 12px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(37, 99, 235, 0.3);
+        }
+
+        /* Series Section */
+        .series-section {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 3rem;
+            color: var(--text-dark);
+        }
+
+        .series-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .series-card {
+            background: var(--card-bg);
+            border-radius: 16px;
+            padding: 2rem;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+        }
+
+        .series-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 40px rgba(0, 0, 0, 0.12);
+        }
+
+        .series-number {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--primary-blue), var(--secondary-purple));
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .series-card h3 {
+            font-size: 1.4rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--text-dark);
+        }
+
+        .series-card p {
+            color: var(--text-light);
+            margin-bottom: 1.5rem;
+        }
+
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .tech-tag {
+            background: var(--light-bg);
+            color: var(--text-dark);
+            padding: 0.25rem 0.75rem;
+            border-radius: 6px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        .resources-list {
+            list-style: none;
+            margin-top: 1rem;
+        }
+
+        .resources-list a {
+            color: var(--primary-blue);
+            text-decoration: none;
+            font-size: 0.9rem;
+        }
+
+        .resources-list a:hover {
+            text-decoration: underline;
+        }
+
+        /* Prompt Modal */
+        .prompt-modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+
+        .prompt-modal-content {
+            background-color: var(--card-bg);
+            margin: 5% auto;
+            padding: 2rem;
+            border-radius: 16px;
+            width: 90%;
+            max-width: 600px;
+            max-height: 80vh;
+            overflow-y: auto;
+        }
+
+        .prompt-modal h3 {
+            margin-bottom: 1rem;
+            color: var(--text-dark);
+        }
+
+        .prompt-text {
+            background: var(--light-bg);
+            padding: 1rem;
+            border-radius: 8px;
+            font-family: monospace;
+            font-size: 0.9rem;
+            white-space: pre-wrap;
+            margin-bottom: 1rem;
+            border: 1px solid var(--border-color);
+        }
+
+        .prompt-actions {
+            display: flex;
+            gap: 1rem;
+            justify-content: flex-end;
+        }
+
+        .copy-btn, .close-btn {
+            padding: 0.5rem 1rem;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 500;
+        }
+
+        .copy-btn {
+            background: var(--primary-blue);
+            color: white;
+        }
+
+        .close-btn {
+            background: var(--light-bg);
+            color: var(--text-dark);
+        }
+
+        /* Resources Filter */
+        .resources-section {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+            background: var(--card-bg);
+            border-radius: 20px;
+            margin-top: 2rem;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+        }
+
+        .filter-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .filter-tab {
+            background: var(--light-bg);
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 10px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .filter-tab.active {
+            background: linear-gradient(135deg, var(--primary-blue), var(--secondary-purple));
+            color: white;
+        }
+
+        .resources-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .resource-card {
+            background: var(--light-bg);
+            border-radius: 12px;
+            padding: 1.5rem;
+            transition: transform 0.3s ease;
+        }
+
+        .resource-card:hover {
+            transform: translateY(-2px);
+        }
+
+        .resource-type {
+            background: var(--accent-green);
+            color: white;
+            padding: 0.25rem 0.75rem;
+            border-radius: 6px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            display: inline-block;
+            margin-bottom: 0.75rem;
+        }
+
+        .resource-card h4 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--text-dark);
+        }
+
+        .resource-card p {
+            color: var(--text-light);
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .resource-link {
+            color: var(--primary-blue);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.9rem;
+        }
+
+        .resource-link:hover {
+            text-decoration: underline;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--dark-bg);
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 4rem;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .social-links a {
+            color: white;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.1);
+            transition: background 0.3s ease;
+        }
+
+        .social-links a:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+            
+            .series-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .filter-tabs {
+                justify-content: flex-start;
+                overflow-x: auto;
+                padding-bottom: 0.5rem;
+            }
+        }
+
+        /* Animation */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .series-card {
+            animation: fadeInUp 0.6s ease forwards;
+        }
+
+        .series-card:nth-child(2) {
+            animation-delay: 0.1s;
+        }
+
+        .series-card:nth-child(3) {
+            animation-delay: 0.2s;
+        }
+
+        .series-card:nth-child(4) {
+            animation-delay: 0.3s;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav">
+            <div class="logo">markintheloop</div>
+            <ul class="nav-links">
+                <li><a href="#series">Series</a></li>
+                <li><a href="#resources">Resources</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>AI Made Simple</h1>
+        <p class="tagline">Turn your MacBook into an AI powerhouse with 5-minute tutorials. No coding degree required.</p>
+        <a href="https://youtube.com/@markintheloop" class="cta-button">Watch Latest Episode</a>
+    </section>
+
+    <!-- Series Section -->
+    <section class="series-section" id="series">
+        <h2 class="section-title">5 Steps in 5 Minutes Series</h2>
+        <div class="series-grid">
+            <div class="series-card" onclick="toggleResources('part1')">
+                <div class="series-number">Part 1</div>
+                <h3>Turn Any MacBook Into an AI Powerhouse</h3>
+                <p>Set up your development environment and run your first Python script with AI assistance. No coding skills required!</p>
+                <div class="tech-stack">
+                    <span class="tech-tag">Python</span>
+                    <span class="tech-tag">Git</span>
+                    <span class="tech-tag">Xcode Tools</span>
+                    <span class="tech-tag">ChatGPT</span>
+                </div>
+                <ul class="resources-list" id="part1-resources" style="display: none;">
+                    <li><a href="https://github.com/markjeromecruz/quickPythonStart" target="_blank">Sample Repository to Git Clone</a></li>
+                    <li><a href="https://www.python.org/downloads/" target="_blank">Python Download</a></li>
+                    <li><a href="https://apps.apple.com/us/app/xcode/id497799835?mt=12" target="_blank">Xcode from App Store</a></li>
+                    <li><a href="http://sublimetext.com" target="_blank">Sublime Text Editor</a></li>
+                </ul>
+            </div>
+
+            <div class="series-card" onclick="toggleResources('part2')">
+                <div class="series-number">Part 2</div>
+                <h3>Build Your Translation App Locally</h3>
+                <p>Create a private AI translation assistant that works completely offline. No coding required!</p>
+                <div class="tech-stack">
+                    <span class="tech-tag">Ollama</span>
+                    <span class="tech-tag">Local AI</span>
+                    <span class="tech-tag">Translation</span>
+                    <span class="tech-tag">Privacy</span>
+                </div>
+                <ul class="resources-list" id="part2-resources" style="display: none;">
+                    <li><a href="https://github.com/markjeromecruz/languageAssist" target="_blank">Language Assistant Repository</a></li>
+                    <li><a href="https://chatgpt.com/share/682c2315-c5a0-800d-a253-c54ca19e9124" target="_blank">Complete ChatGPT Prompt</a></li>
+                    <li><a href="#" onclick="copyPrompt('modify-ui')">UI Modification Prompt</a></li>
+                    <li><a href="https://ollama.ai" target="_blank">Ollama Download</a></li>
+                </ul>
+            </div>
+
+            <div class="series-card" onclick="toggleResources('part3')">
+                <div class="series-number">Part 3</div>
+                <h3>AI App That "Sees" Productivity</h3>
+                <p>Build a computer vision app that monitors your productivity in real-time using your MacBook's camera.</p>
+                <div class="tech-stack">
+                    <span class="tech-tag">Computer Vision</span>
+                    <span class="tech-tag">SmolVLM</span>
+                    <span class="tech-tag">Webcam AI</span>
+                    <span class="tech-tag">Cursor IDE</span>
+                </div>
+                <ul class="resources-list" id="part3-resources" style="display: none;">
+                    <li><a href="https://github.com/ngxson/smolvlm-realtime-webcam" target="_blank">Original SmolVLM Demo</a></li>
+                    <li><a href="https://github.com/markjeromecruz/AI-Productivity" target="_blank">Mark's Productivity Tracker</a></li>
+                    <li><a href="https://www.augmentcode.com/" target="_blank">Cursor IDE Download</a></li>
+                    <li><a href="#" onclick="copyPrompt('cursor-improve')">Cursor Improvement Prompt</a></li>
+                </ul>
+            </div>
+
+            <div class="series-card" onclick="toggleResources('special')">
+                <div class="series-number">Special</div>
+                <h3>LlamaCon 2025 - What Happened!</h3>
+                <p>Behind-the-scenes look at Meta's AI conference and the future of Llama models in real-world applications.</p>
+                <div class="tech-stack">
+                    <span class="tech-tag">Llama API</span>
+                    <span class="tech-tag">Meta AI</span>
+                    <span class="tech-tag">Industry News</span>
+                    <span class="tech-tag">AI Research</span>
+                </div>
+                <ul class="resources-list" id="special-resources" style="display: none;">
+                    <li><a href="https://llama.developer.meta.com/join_waitlist" target="_blank">Llama API Preview Signup</a></li>
+                    <li><a href="https://www.llama.com/resources/cookbook/" target="_blank">Llama Cookbook</a></li>
+                    <li><a href="https://github.com/meta-llama/synthetic-data-kit" target="_blank">Synthetic Data Kit</a></li>
+                    <li><a href="https://about.fb.com/news/2025/04/introducing-meta-ai-app-new-way-access-ai-assistant/" target="_blank">Meta AI Announcement</a></li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Resources Section -->
+    <section class="resources-section" id="resources">
+        <h2 class="section-title">All Resources</h2>
+        
+        <div class="filter-tabs">
+            <button class="filter-tab active" onclick="filterResources('all')">All Resources</button>
+            <button class="filter-tab" onclick="filterResources('downloads')">Downloads</button>
+            <button class="filter-tab" onclick="filterResources('tools')">AI Tools</button>
+            <button class="filter-tab" onclick="filterResources('code')">Source Code</button>
+            <button class="filter-tab" onclick="filterResources('prompts')">Prompts</button>
+        </div>
+
+        <div class="resources-grid" id="resources-container">
+            <!-- Downloads -->
+            <div class="resource-card" data-category="downloads">
+                <div class="resource-type">Download</div>
+                <h4>Python 3.x</h4>
+                <p>Official Python interpreter for macOS. Essential foundation for all AI development.</p>
+                <a href="https://www.python.org/downloads/" class="resource-link" target="_blank">Download from Python.org →</a>
+            </div>
+
+            <div class="resource-card" data-category="downloads">
+                <div class="resource-type">Download</div>
+                <h4>Ollama</h4>
+                <p>Run large language models locally on your MacBook with complete privacy.</p>
+                <a href="https://ollama.ai" class="resource-link" target="_blank">Download Ollama →</a>
+            </div>
+
+            <div class="resource-card" data-category="downloads">
+                <div class="resource-type">Download</div>
+                <h4>Cursor IDE</h4>
+                <p>AI-powered code editor that writes and improves code with intelligent suggestions.</p>
+                <a href="https://www.augmentcode.com/" class="resource-link" target="_blank">Download Cursor →</a>
+            </div>
+
+            <div class="resource-card" data-category="downloads">
+                <div class="resource-type">Download</div>
+                <h4>Xcode</h4>
+                <p>Apple's development tools including essential command line utilities for Mac development.</p>
+                <a href="https://apps.apple.com/us/app/xcode/id497799835?mt=12" class="resource-link" target="_blank">Download from App Store →</a>
+            </div>
+
+            <div class="resource-card" data-category="downloads">
+                <div class="resource-type">Download</div>
+                <h4>Sublime Text</h4>
+                <p>Lightweight, powerful text editor perfect for editing Python scripts and configuration files.</p>
+                <a href="http://sublimetext.com" class="resource-link" target="_blank">Download Sublime Text →</a>
+            </div>
+
+            <!-- AI Tools -->
+            <div class="resource-card" data-category="tools">
+                <div class="resource-type">AI Tool</div>
+                <h4>ChatGPT</h4>
+                <p>Web-based AI assistant for code generation, debugging, and prompt engineering.</p>
+                <a href="https://chat.openai.com" class="resource-link" target="_blank">Open ChatGPT →</a>
+            </div>
+
+            <div class="resource-card" data-category="tools">
+                <div class="resource-type">AI Tool</div>
+                <h4>Claude</h4>
+                <p>Alternative AI assistant excellent for code generation and technical explanations.</p>
+                <a href="https://claude.ai" class="resource-link" target="_blank">Open Claude →</a>
+            </div>
+
+            <div class="resource-card" data-category="tools">
+                <div class="resource-type">AI Tool</div>
+                <h4>Llama API Preview</h4>
+                <p>Sign up for early access to Meta's Llama API for building AI applications.</p>
+                <a href="https://llama.developer.meta.com/join_waitlist" class="resource-link" target="_blank">Join Waitlist →</a>
+            </div>
+
+            <div class="resource-card" data-category="tools">
+                <div class="resource-type">Resource</div>
+                <h4>Llama Cookbook</h4>
+                <p>Official Meta cookbook with examples and best practices for using Llama models.</p>
+                <a href="https://www.llama.com/resources/cookbook/" class="resource-link" target="_blank">View Cookbook →</a>
+            </div>
+
+            <!-- Source Code -->
+            <div class="resource-card" data-category="code">
+                <div class="resource-type">Source Code</div>
+                <h4>Quick Python Start</h4>
+                <p>Complete GitHub repository for Part 1 with CSV visualization and setup files.</p>
+                <a href="https://github.com/markjeromecruz/quickPythonStart" class="resource-link" target="_blank">View on GitHub →</a>
+            </div>
+
+            <div class="resource-card" data-category="code">
+                <div class="resource-type">Source Code</div>
+                <h4>Language Assistant</h4>
+                <p>Full implementation of the local AI translation assistant from Part 2.</p>
+                <a href="https://github.com/markjeromecruz/languageAssist" class="resource-link" target="_blank">View on GitHub →</a>
+            </div>
+
+            <div class="resource-card" data-category="code">
+                <div class="resource-type">Source Code</div>
+                <h4>AI Productivity Tracker</h4>
+                <p>Mark's version of the computer vision productivity monitoring application from Part 3.</p>
+                <a href="https://github.com/markjeromecruz/AI-Productivity" class="resource-link" target="_blank">View on GitHub →</a>
+            </div>
+
+            <div class="resource-card" data-category="code">
+                <div class="resource-type">Source Code</div>
+                <h4>SmolVLM Original Demo</h4>
+                <p>Original computer vision demo repository that inspired the productivity tracker.</p>
+                <a href="https://github.com/ngxson/smolvlm-realtime-webcam" class="resource-link" target="_blank">View on GitHub →</a>
+            </div>
+
+            <div class="resource-card" data-category="code">
+                <div class="resource-type">Source Code</div>
+                <h4>Meta Synthetic Data Kit</h4>
+                <p>Official Meta toolkit for generating synthetic training data using Llama models.</p>
+                <a href="https://github.com/meta-llama/synthetic-data-kit" class="resource-link" target="_blank">View on GitHub →</a>
+            </div>
+
+            <!-- Prompts -->
+            <div class="resource-card" data-category="prompts">
+                <div class="resource-type">Prompt</div>
+                <h4>Complete Language Assistant Prompt</h4>
+                <p>The full ChatGPT conversation that generated the translation app code from Part 2.</p>
+                <a href="https://chatgpt.com/share/682c2315-c5a0-800d-a253-c54ca19e9124" class="resource-link" target="_blank">View Prompt →</a>
+            </div>
+
+            <div class="resource-card" data-category="prompts">
+                <div class="resource-type">Prompt</div>
+                <h4>UI Modification Prompt</h4>
+                <p>Ready-to-use prompt for improving the visual design of your Python applications.</p>
+                <a href="#" class="resource-link" onclick="copyPrompt('modify-ui')">Copy Prompt →</a>
+            </div>
+
+            <div class="resource-card" data-category="prompts">
+                <div class="resource-type">Prompt</div>
+                <h4>Cursor App Improvement</h4>
+                <p>Use this prompt in Cursor IDE to get AI suggestions for enhancing your applications.</p>
+                <a href="#" class="resource-link" onclick="copyPrompt('cursor-improve')">Copy Prompt →</a>
+            </div>
+
+            <!-- Articles & Resources -->
+            <div class="resource-card" data-category="tools">
+                <div class="resource-type">Article</div>
+                <h4>NASA Using Llama</h4>
+                <p>How NASA is leveraging Meta's Llama models for space exploration and research.</p>
+                <a href="https://bit.ly/43CxrOR" class="resource-link" target="_blank">Read Article →</a>
+            </div>
+
+            <div class="resource-card" data-category="tools">
+                <div class="resource-type">Article</div>
+                <h4>Spotify & Llama Integration</h4>
+                <p>Case study on how Spotify uses Llama models to enhance user experience.</p>
+                <a href="https://bit.ly/3Hehjff" class="resource-link" target="_blank">Read Article →</a>
+            </div>
+
+            <div class="resource-card" data-category="tools">
+                <div class="resource-type">Article</div>
+                <h4>Mayo Clinic AI Research</h4>
+                <p>Medical applications of Llama 2 in healthcare and clinical decision support.</p>
+                <a href="https://ai.meta.com/blog/radonc-gpt-meta-llama-2-mayo-clinic/" class="resource-link" target="_blank">Read Article →</a>
+            </div>
+
+            <div class="resource-card" data-category="tools">
+                <div class="resource-type">Article</div>
+                <h4>Space Llama Project</h4>
+                <p>Meta's ambitious project to deploy Llama models in space-based applications.</p>
+                <a href="https://about.fb.com/news/2025/04/space-llama-metas-open-source-ai-model-heading-into-orbit/" class="resource-link" target="_blank">Read Article →</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Prompt Modal -->
+    <div id="promptModal" class="prompt-modal">
+        <div class="prompt-modal-content">
+            <h3 id="promptTitle">Prompt</h3>
+            <div id="promptText" class="prompt-text"></div>
+            <div class="prompt-actions">
+                <button class="copy-btn" onclick="copyToClipboard()">Copy Prompt</button>
+                <button class="close-btn" onclick="closePromptModal()">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer" id="contact">
+        <div class="social-links">
+            <a href="https://youtube.com/@markintheloop">YouTube</a>
+            <a href="https://tiktok.com/@markintheloop">TikTok</a>
+            <a href="https://twitter.com/markintheloop">Twitter</a>
+            <a href="mailto:hello@markintheloop.com">Email</a>
+        </div>
+        <p>&copy; 2024 Mark in the Loop. Making AI accessible to everyone.</p>
+    </footer>
+
+    <script>
+        // Toggle resources for series cards
+        function toggleResources(partId) {
+            const resourcesList = document.getElementById(partId + '-resources');
+            const isVisible = resourcesList.style.display !== 'none';
+            
+            // Hide all resource lists first
+            const allResources = document.querySelectorAll('.resources-list');
+            allResources.forEach(list => list.style.display = 'none');
+            
+            // Show the clicked one if it wasn't already visible
+            if (!isVisible) {
+                resourcesList.style.display = 'block';
+            }
+        }
+
+        // Filter resources
+        function filterResources(category) {
+            const allCards = document.querySelectorAll('.resource-card');
+            const allTabs = document.querySelectorAll('.filter-tab');
+            
+            // Update active tab
+            allTabs.forEach(tab => tab.classList.remove('active'));
+            event.target.classList.add('active');
+            
+            // Show/hide cards
+            allCards.forEach(card => {
+                if (category === 'all' || card.dataset.category === category) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        // Prompt library
+        const prompts = {
+            'modify-ui': {
+                title: 'UI Modification Prompt',
+                text: `I want to modify a python script. I want to change the bg colors and buttons to make it more presentable and appealing. Think as a UI designer and make the changes. Print the entire code once you are done so I can copy and paste:
+
+<add your Python code here>`
+            },
+            'cursor-improve': {
+                title: 'Cursor App Improvement Prompt',
+                text: `Help me come up with ideas to improve this app. Give me some suggestions and help me make the changes!`
+            }
+        };
+
+        // Copy prompt to clipboard
+        function copyPrompt(promptId) {
+            const prompt = prompts[promptId];
+            if (prompt) {
+                document.getElementById('promptTitle').textContent = prompt.title;
+                document.getElementById('promptText').textContent = prompt.text;
+                document.getElementById('promptModal').style.display = 'block';
+            }
+        }
+
+        // Copy to clipboard functionality
+        function copyToClipboard() {
+            const promptText = document.getElementById('promptText').textContent;
+            navigator.clipboard.writeText(promptText).then(() => {
+                const btn = document.querySelector('.copy-btn');
+                const originalText = btn.textContent;
+                btn.textContent = 'Copied!';
+                btn.style.background = 'var(--accent-green)';
+                
+                setTimeout(() => {
+                    btn.textContent = originalText;
+                    btn.style.background = 'var(--primary-blue)';
+                }, 2000);
+            });
+        }
+
+        // Close prompt modal
+        function closePromptModal() {
+            document.getElementById('promptModal').style.display = 'none';
+        }
+
+        // Close modal when clicking outside
+        window.onclick = function(event) {
+            const modal = document.getElementById('promptModal');
+            if (event.target === modal) {
+                modal.style.display = 'none';
+            }
+        }
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add intersection observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all cards for animation
+        document.querySelectorAll('.series-card, .resource-card').forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(30px)';
+            card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(card);
+        });
+    </script>
+</body>
+</html>

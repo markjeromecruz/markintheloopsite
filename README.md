@@ -1,28 +1,46 @@
-# AI-Accelerated Development: A Guide to Vibe Coding
+# Mark in the Loop Website
 
-This presentation, `index.html`, showcases a paradigm shift in software development, demonstrating how our team can achieve a 15x efficiency multiplier by embracing an AI-assisted workflow.
+This repository contains the source code for the "Mark in the Loop" website, a single-page application designed to make complex technology topics, starting with AI, simple and accessible. The site features a dynamic Three.js animated background, responsive design, and interactive content sections.
 
-## The Concept: What is "Vibe Coding"?
+This project was built with an AI-assisted workflow, demonstrating how to rapidly prototype and build a modern web presence by focusing on high-level direction and leveraging AI for implementation.
 
-"Vibe Coding" is a development philosophy centered on intelligent collaboration with AI. It's about moving beyond line-by-line coding and elevating our role to that of an architect and orchestrator. We define the "vibe"—the core logic, the user experience, the architectural direction—and leverage AI partners to translate that vision into functional, optimized code with unprecedented speed.
+## Features
 
-This approach isn't about replacing engineers; it's about augmenting our skills. We trade the tedious, time-consuming aspects of development for high-level problem-solving, strategic integration, and rapid prototyping.
+*   **Dynamic Hero Section:** A fullscreen hero section with a captivating Three.js animation.
+*   **Interactive Content:**
+    *   **Series Cards:** Expandable cards to show related resources for each video series.
+    *   **Filterable Resources:** A grid of resources that can be filtered by category.
+    *   **Prompt Modals:** Pop-up modals to easily copy and use AI prompts.
+*   **Responsive Design:** A mobile-first approach ensures the site looks great on all devices, including a hamburger menu for navigation on smaller screens.
+*   **Smooth Scrolling & Animations:** Subtle scroll-based animations and smooth navigation between sections.
 
-## Core Thesis of the Presentation
+## Tech Stack
 
-The central argument is the transition from a **64-100 engineer-week** project timeline to just **6 engineer-weeks**. This is achieved by strategically "buying" (integrating best-in-class AI services like Glean) versus "building" custom solutions from the ground up, and by using AI assistants as pair programmers and code generators.
+*   **Frontend:** HTML5, CSS3, JavaScript (ES6+)
+*   **3D Graphics:** [Three.js](https://threejs.org/)
+*   **Fonts:** Google Fonts (Montserrat & Lato)
 
-### Key Takeaways for the Team:
+## File Structure
 
-*   **Strategic Integration:** Learn to identify opportunities to leverage powerful, existing APIs and AI platforms rather than reinventing the wheel.
-*   **The Engineer as an Architect:** Your primary role shifts to designing systems, directing AI, and ensuring the final product aligns with the core business goals.
-*   **Rapid Prototyping & Iteration:** Use AI to build and test ideas faster than ever before, enabling a more agile and responsive development cycle.
-*   **Focus on What Matters:** Automate the boilerplate and concentrate your expertise on the unique, complex challenges that deliver the most value.
+*   `index.html`: The main and only HTML file containing the structure, styling, and scripts for the entire website.
+*   `MJC LOGO-white.png`: The primary logo file used in the header and hero section.
+*   `MJC LOGO-black.png`: The black version of the logo (currently unused).
+*   `README.md`: This file.
 
-## How to View the Presentation
+## Getting Started
 
-Simply open the `index.html` file in any modern web browser.
+To view or work on the website, simply clone the repository and open the `index.html` file in a modern web browser that supports WebGL.
 
----
+```bash
+git clone <repository-url>
+cd <repository-directory>
+# Open index.html in your browser
+```
 
-Let's embrace this new way of working, focusing our creative energy on the "vibe" and building better products, faster. 
+## How to Customize
+
+All content, styles, and scripts are located within `index.html`.
+
+*   **Content:** To change text or links, find the relevant section (e.g., `#series`, `#resources`, `#about`) and edit the HTML directly.
+*   **Styling:** All CSS is located within the `<style>` tags in the `<head>` of the document.
+*   **Scripts:** All JavaScript logic, including the Three.js animations and UI interactions, is located within the `<script>` tags at the bottom of the `<body>`. 
