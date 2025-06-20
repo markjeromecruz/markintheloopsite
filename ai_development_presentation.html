@@ -1,0 +1,974 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI-Accelerated Development: 15x Efficiency Multiplier</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;400;600&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Rajdhani', sans-serif;
+            background: linear-gradient(135deg, #000000 0%, #1a0b2e 50%, #0f0f23 100%);
+            color: #ffffff;
+            overflow-x: hidden;
+        }
+        
+        .neon-border {
+            border: 2px solid #00ff88;
+            border-radius: 15px;
+            box-shadow: 
+                0 0 25px #00ff88,
+                inset 0 0 25px rgba(0, 255, 136, 0.1);
+            animation: neonPulse 2s ease-in-out infinite alternate;
+        }
+        
+        @keyframes neonPulse {
+            from {
+                box-shadow: 
+                    0 0 25px #00ff88,
+                    inset 0 0 25px rgba(0, 255, 136, 0.1);
+            }
+            to {
+                box-shadow: 
+                    0 0 40px #00ff88,
+                    0 0 50px #00ff88,
+                    inset 0 0 40px rgba(0, 255, 136, 0.2);
+            }
+        }
+        
+        .intro-section {
+            height: 100vh;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+        
+        #threejs-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+        }
+        
+        .intro-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            padding: 2rem;
+        }
+        
+        .main-title {
+            font-family: 'Orbitron', monospace;
+            font-size: 4rem;
+            font-weight: 900;
+            background: linear-gradient(45deg, #00ff88, #00d4ff, #ff3366);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 0 40px rgba(0, 255, 136, 0.8);
+            margin-bottom: 1rem;
+            animation: titleGlow 3s ease-in-out infinite;
+        }
+        
+        @keyframes titleGlow {
+            0%, 100% { filter: brightness(1); }
+            50% { filter: brightness(1.3) drop-shadow(0 0 30px #00ff88); }
+        }
+        
+        .subtitle {
+            font-size: 1.8rem;
+            color: #00d4ff;
+            margin-bottom: 1rem;
+            opacity: 0;
+            animation: fadeInUp 1s ease-out 1s forwards;
+            text-shadow: 0 0 20px rgba(0, 212, 255, 0.6);
+        }
+        
+        .efficiency-stat {
+            font-size: 2.5rem;
+            color: #00ff88;
+            font-weight: 700;
+            margin-bottom: 2rem;
+            opacity: 0;
+            animation: fadeInUp 1s ease-out 1.5s forwards;
+            text-shadow: 0 0 25px rgba(0, 255, 136, 0.8);
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .cta-button {
+            background: linear-gradient(45deg, #00ff88, #00d4ff);
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            color: #000000;
+            font-size: 1.2rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            opacity: 0;
+            animation: fadeInUp 1s ease-out 2s forwards;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 255, 136, 0.5);
+        }
+        
+        .content-section {
+            min-height: 100vh;
+            padding: 4rem 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .particle-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            opacity: 0.7;
+        }
+        
+        .content-grid {
+            max-width: 1400px;
+            width: 100%;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .section-title {
+            font-family: 'Orbitron', monospace;
+            font-size: 2.8rem;
+            color: #00ff88;
+            margin-bottom: 1.5rem;
+            text-shadow: 0 0 30px rgba(0, 255, 136, 0.8);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        
+        .section-content {
+            background: rgba(0, 255, 136, 0.05);
+            backdrop-filter: blur(15px);
+            padding: 3rem;
+            border-radius: 25px;
+            border: 2px solid rgba(0, 255, 136, 0.3);
+            box-shadow: 0 0 30px rgba(0, 255, 136, 0.2);
+        }
+        
+        .feature-list {
+            list-style: none;
+            margin: 2rem 0;
+        }
+        
+        .feature-list li {
+            padding: 1rem 0;
+            padding-left: 3rem;
+            position: relative;
+            font-size: 1.2rem;
+            color: #e8e8e8;
+            line-height: 1.6;
+        }
+        
+        .feature-list li::before {
+            content: '▶';
+            position: absolute;
+            left: 0;
+            color: #00d4ff;
+            font-size: 1.5rem;
+            text-shadow: 0 0 15px rgba(0, 212, 255, 0.8);
+        }
+        
+        .feature-list li strong {
+            color: #00ff88;
+            text-shadow: 0 0 10px rgba(0, 255, 136, 0.6);
+        }
+        
+        .visual-element {
+            background: linear-gradient(135deg, rgba(0, 255, 136, 0.1), rgba(0, 212, 255, 0.1));
+            border-radius: 25px;
+            padding: 3rem;
+            text-align: center;
+            border: 2px solid rgba(0, 212, 255, 0.4);
+            box-shadow: 0 0 40px rgba(0, 212, 255, 0.3);
+        }
+        
+        .icon {
+            font-size: 5rem;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(45deg, #00ff88, #00d4ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            filter: drop-shadow(0 0 20px rgba(0, 255, 136, 0.8));
+        }
+        
+        .stat-highlight {
+            font-size: 3rem;
+            color: #ff3366;
+            font-weight: 900;
+            margin: 1rem 0;
+            text-shadow: 0 0 25px rgba(255, 51, 102, 0.8);
+        }
+        
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 2rem 0;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 15px;
+            overflow: hidden;
+        }
+        
+        .comparison-table th,
+        .comparison-table td {
+            padding: 1.5rem;
+            text-align: left;
+            border-bottom: 1px solid rgba(0, 255, 136, 0.3);
+        }
+        
+        .comparison-table th {
+            background: rgba(0, 255, 136, 0.2);
+            color: #00ff88;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .comparison-table .traditional {
+            color: #ff3366;
+            background: rgba(255, 51, 102, 0.1);
+        }
+        
+        .comparison-table .ai-accelerated {
+            color: #00ff88;
+            background: rgba(0, 255, 136, 0.1);
+        }
+        
+        .floating-particles {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: 0;
+        }
+        
+        .particle {
+            position: absolute;
+            width: 6px;
+            height: 6px;
+            background: #00d4ff;
+            border-radius: 50%;
+            animation: float 8s ease-in-out infinite;
+            opacity: 0.8;
+            box-shadow: 0 0 15px #00d4ff;
+        }
+        
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0px) rotate(0deg);
+                opacity: 0.8;
+            }
+            50% {
+                transform: translateY(-30px) rotate(180deg);
+                opacity: 1;
+            }
+        }
+        
+        .navigation {
+            position: fixed;
+            top: 50%;
+            right: 2rem;
+            transform: translateY(-50%);
+            z-index: 1000;
+        }
+        
+        .nav-dot {
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.3);
+            margin: 1.5rem 0;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 2px solid rgba(0, 255, 136, 0.5);
+        }
+        
+        .nav-dot.active,
+        .nav-dot:hover {
+            background: #00ff88;
+            box-shadow: 0 0 20px #00ff88;
+            transform: scale(1.3);
+        }
+        
+        .reveal {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 1s ease;
+        }
+        
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .section-subtitle {
+            font-size: 1.4rem;
+            color: #00d4ff;
+            margin-bottom: 2rem;
+            text-shadow: 0 0 15px rgba(0, 212, 255, 0.6);
+        }
+        
+        @media (max-width: 768px) {
+            .content-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            .main-title {
+                font-size: 2.5rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .efficiency-stat {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Dots -->
+    <div class="navigation">
+        <div class="nav-dot active" data-section="0"></div>
+        <div class="nav-dot" data-section="1"></div>
+        <div class="nav-dot" data-section="2"></div>
+        <div class="nav-dot" data-section="3"></div>
+        <div class="nav-dot" data-section="4"></div>
+        <div class="nav-dot" data-section="5"></div>
+    </div>
+
+    <!-- Intro Section -->
+    <section class="intro-section" id="section-0">
+        <div id="threejs-container"></div>
+        <div class="intro-content">
+            <div style="font-size: 1.5rem; color: #ffffff; margin-bottom: 2rem; text-shadow: 0 0 20px rgba(255, 255, 255, 0.8); font-weight: 600; letter-spacing: 2px; text-transform: uppercase; opacity: 0; animation: fadeInUp 1s ease-out 0.5s forwards;">
+                Granular Root Cause Insights
+            </div>
+            <h1 class="main-title">AI-ACCELERATED DEVELOPMENT</h1>
+            <p class="subtitle">From 64-100 Engineer-Weeks to 6 Engineer-Weeks</p>
+            <div class="efficiency-stat">15X EFFICIENCY MULTIPLIER</div>
+            <button class="cta-button" onclick="scrollToNext()">See The Breakdown</button>
+        </div>
+        <div class="floating-particles">
+            <!-- Particles will be generated by JavaScript -->
+        </div>
+    </section>
+
+    <!-- Section 1: The Problem -->
+    <section class="content-section" id="section-1">
+        <div class="particle-background" id="particles-1"></div>
+        <div class="content-grid">
+            <div class="section-content reveal">
+                <h2 class="section-title">TRADITIONAL SOFTWARE DEVELOPMENT</h2>
+                <p class="section-subtitle">
+                    Multi-team requirements and extended timelines
+                </p>
+                <ul class="feature-list">
+                    <li><strong>TEAM SIZE:</strong> 4-5 Engineers (Backend, ML/NLP, Frontend, Data, DevOps)</li>
+                    <li><strong>PRODUCT DESIGN:</strong> UI/UX overhead for dashboards and reports</li>
+                    <li><strong>TIMELINE:</strong> 16-20 weeks with full team</li>
+                    <li><strong>SINGLE ENGINEER:</strong> 25-30 weeks with context switching penalty</li>
+                    <li><strong>COMPLEXITY:</strong> Custom NLP development (6-8 weeks alone)</li>
+                    <li><strong>OVERHEAD:</strong> Extensive research, testing, infrastructure setup</li>
+                </ul>
+                <div class="stat-highlight">64-100 Engineer-Weeks</div>
+            </div>
+            <div class="visual-element reveal">
+                <div class="icon">⚠️</div>
+                <h3 style="color: #ff3366; margin-bottom: 1rem; text-shadow: 0 0 15px rgba(255, 51, 102, 0.8);">Traditional Development Overhead</h3>
+                <p style="font-size: 1.1rem; line-height: 1.6;">Multi-team coordination, custom ML development, manual coding cycles, and complex infrastructure create significant development overhead.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 2: The Solution -->
+    <section class="content-section" id="section-2">
+        <div class="particle-background" id="particles-2"></div>
+        <div class="content-grid">
+            <div class="visual-element reveal">
+                <div class="icon">🚀</div>
+                <h3 style="color: #00ff88; margin-bottom: 1rem; text-shadow: 0 0 15px rgba(0, 255, 136, 0.8);">AI-Powered Acceleration</h3>
+                <p style="font-size: 1.1rem; line-height: 1.6;">Strategic tool integration + AI-assisted development eliminates traditional bottlenecks through intelligent automation.</p>
+                <div class="stat-highlight">6 Engineer-Weeks</div>
+            </div>
+            <div class="section-content reveal">
+                <h2 class="section-title">AI-ACCELERATED EFFORT <span style="font-size: 0.6em; color: #44ff99; font-weight: 400;">(Vibe Coding)</span></h2>
+                <p class="section-subtitle">
+                    Smart integration over custom development
+                </p>
+                <ul class="feature-list">
+                    <li><strong>GLEAN INTEGRATION:</strong> Skip 6-8 weeks of curating data and fine-tuning an LLM model</li>
+                    <li><strong>CLAUDE AI:</strong> Pair programming for complex logic & optimization</li>
+                    <li><strong>CURSOR IDE:</strong> Real-time code generation & refactoring</li>
+                    <li><strong>API-FIRST:</strong> Leverage existing JIRA infrastructure</li>
+                    <li><strong>SCALED AI DEPLOYMENT:</strong> Used a scaled AI deployment rather than developing our own</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 3: Technical Architecture -->
+    <section class="content-section" id="section-3">
+        <div class="particle-background" id="particles-3"></div>
+        <div class="content-grid">
+            <div class="visual-element reveal">
+                <div class="icon">⚡</div>
+                <h3 style="color: #00d4ff; margin-bottom: 1rem; text-shadow: 0 0 15px rgba(0, 212, 255, 0.8);">Data Flow Architecture</h3>
+                
+                <!-- Clean Data Flow Cards -->
+                <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; margin: 1.5rem 0;">
+                    <!-- Row 1 -->
+                    <div style="background: rgba(0, 100, 255, 0.2); padding: 1rem; border-radius: 10px; border: 1px solid rgba(0, 212, 255, 0.4); text-align: center;">
+                        <div style="font-size: 1.5rem; margin-bottom: 0.5rem;">🗄️</div>
+                        <div style="color: #00d4ff; font-weight: 600; font-size: 0.9rem;">JIRA Server</div>
+                        <div style="color: #a0a0a0; font-size: 0.8rem;">Bug Tickets</div>
+                    </div>
+                    <div style="background: rgba(0, 170, 0, 0.2); padding: 1rem; border-radius: 10px; border: 1px solid rgba(0, 255, 136, 0.4); text-align: center;">
+                        <div style="font-size: 1.5rem; margin-bottom: 0.5rem;">🔌</div>
+                        <div style="color: #00ff88; font-weight: 600; font-size: 0.9rem;">Python API</div>
+                        <div style="color: #a0a0a0; font-size: 0.8rem;">Query Engine</div>
+                    </div>
+                    
+                    <!-- Flow Arrow -->
+                    <div style="grid-column: 1 / -1; text-align: center; color: #00ff88; font-size: 1.5rem; margin: 0.5rem 0;">
+                        ⬇️
+                    </div>
+                    
+                    <!-- Row 2 -->
+                    <div style="background: rgba(255, 170, 0, 0.2); padding: 1rem; border-radius: 10px; border: 1px solid rgba(255, 204, 68, 0.4); text-align: center;">
+                        <div style="font-size: 1.5rem; margin-bottom: 0.5rem;">⚙️</div>
+                        <div style="color: #ffcc44; font-weight: 600; font-size: 0.9rem;">Data Processing</div>
+                        <div style="color: #a0a0a0; font-size: 0.8rem;">Sanitization</div>
+                    </div>
+                    <div style="background: rgba(136, 0, 255, 0.2); padding: 1rem; border-radius: 10px; border: 1px solid rgba(170, 68, 255, 0.4); text-align: center;">
+                        <div style="font-size: 1.5rem; margin-bottom: 0.5rem;">🧠</div>
+                        <div style="color: #aa44ff; font-weight: 600; font-size: 0.9rem;">Glean AI</div>
+                        <div style="color: #a0a0a0; font-size: 0.8rem;">Analysis</div>
+                    </div>
+                    
+                    <!-- Flow Arrow -->
+                    <div style="grid-column: 1 / -1; text-align: center; color: #00ff88; font-size: 1.5rem; margin: 0.5rem 0;">
+                        ⬇️
+                    </div>
+                    
+                    <!-- Row 3 -->
+                    <div style="background: rgba(255, 102, 0, 0.2); padding: 1rem; border-radius: 10px; border: 1px solid rgba(255, 136, 68, 0.4); text-align: center;">
+                        <div style="font-size: 1.5rem; margin-bottom: 0.5rem;">💾</div>
+                        <div style="color: #ff8844; font-weight: 600; font-size: 0.9rem;">SQLite Cache</div>
+                        <div style="color: #a0a0a0; font-size: 0.8rem;">Performance</div>
+                    </div>
+                    <div style="background: rgba(204, 0, 0, 0.2); padding: 1rem; border-radius: 10px; border: 1px solid rgba(255, 68, 68, 0.4); text-align: center;">
+                        <div style="font-size: 1.5rem; margin-bottom: 0.5rem;">🌐</div>
+                        <div style="color: #ff4444; font-weight: 600; font-size: 0.9rem;">Flask App</div>
+                        <div style="color: #a0a0a0; font-size: 0.8rem;">Orchestration</div>
+                    </div>
+                    
+                    <!-- Flow Arrow -->
+                    <div style="grid-column: 1 / -1; text-align: center; color: #00ff88; font-size: 1.5rem; margin: 0.5rem 0;">
+                        ⬇️
+                    </div>
+                    
+                    <!-- Final Output -->
+                    <div style="grid-column: 1 / -1; background: rgba(102, 102, 102, 0.2); padding: 1rem; border-radius: 10px; border: 1px solid rgba(153, 153, 153, 0.4); text-align: center;">
+                        <div style="font-size: 2rem; margin-bottom: 0.5rem;">📊</div>
+                        <div style="color: #999999; font-weight: 600; font-size: 1rem;">Executive Insights</div>
+                        <div style="color: #a0a0a0; font-size: 0.9rem;">Actionable Reports & Dashboards</div>
+                    </div>
+                </div>
+                
+                <!-- Key Benefits -->
+                <div style="background: rgba(0, 212, 255, 0.1); padding: 1rem; border-radius: 10px; border: 1px solid rgba(0, 212, 255, 0.3); margin-top: 1rem;">
+                    <div style="color: #00d4ff; font-weight: 600; font-size: 0.9rem; margin-bottom: 0.5rem;">Smart Integration Benefits:</div>
+                    <div style="color: #a0a0a0; font-size: 0.8rem; line-height: 1.4;">
+                        ✓ No custom ML infrastructure<br>
+                        ✓ Minimal server resources<br>
+                        ✓ Enterprise-grade AI capabilities
+                    </div>
+                </div>
+            </div>
+            <div class="section-content reveal">
+                <h2 class="section-title">ARCHITECTURE</h2>
+                <p class="section-subtitle">
+                    Strategic technology stack for rapid deployment
+                </p>
+                <ul class="feature-list">
+                    <li><strong>PYTHON FLASK:</strong> Lean web framework with minimal server resources</li>
+                    <li><strong>SQLITE CACHING:</strong> Intelligent caching without database administration complexity</li>
+                    <li><strong>JIRA PYTHON API:</strong> Seamless integration without data migration</li>
+                    <li><strong>GLEAN REST API:</strong> Enterprise NLP capabilities, eliminating custom ML infrastructure</li>
+                    <li><strong>HTML/CSS/JAVASCRIPT:</strong> Standard frontend with Matplotlib visualization</li>
+                </ul>
+                <div style="background: rgba(0, 212, 255, 0.1); padding: 1.5rem; border-radius: 15px; margin: 1.5rem 0; border: 1px solid rgba(0, 212, 255, 0.3);">
+                    <div style="color: #00d4ff; font-size: 1.1rem; font-weight: 600; margin-bottom: 1rem;">Strategic "Buy vs. Build" Philosophy</div>
+                    <div style="color: #e8e8e8; line-height: 1.6;">Each component selected for rapid deployment, minimal maintenance overhead, and immediate business value—enabling focus on business logic rather than foundational technology development.</div>
+                </div>
+            </div>
+            <div class="visual-element reveal">
+                <div class="icon">⚡</div>
+                <h3 style="color: #00d4ff; margin-bottom: 1rem; text-shadow: 0 0 15px rgba(0, 212, 255, 0.8);">Smart Integration</h3>
+                <p style="font-size: 1.1rem; line-height: 1.6;">By leveraging Glean's pre-trained AI and API-first integration, we avoided the most complex and time-consuming development phase.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 4: Results & Impact -->
+    <section class="content-section" id="section-4">
+        <div class="particle-background" id="particles-4"></div>
+        <div class="content-grid">
+            <div class="visual-element reveal">
+                <div class="icon">⚡</div>
+                <h3 style="color: #00ff88; margin-bottom: 1rem; text-shadow: 0 0 15px rgba(0, 255, 136, 0.8);">Operational Impact</h3>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin: 1.5rem 0;">
+                    <div style="text-align: center; padding: 1rem; background: rgba(255, 51, 102, 0.1); border-radius: 10px; border: 1px solid rgba(255, 51, 102, 0.3);">
+                        <div style="color: #ff3366; font-size: 2rem; font-weight: 700;">BEFORE</div>
+                        <div style="color: #ff3366; font-size: 1.2rem;">16-20 weeks</div>
+                        <div style="color: #ff3366;">4-5 engineers</div>
+                    </div>
+                    <div style="text-align: center; padding: 1rem; background: rgba(0, 255, 136, 0.1); border-radius: 10px; border: 1px solid rgba(0, 255, 136, 0.3);">
+                        <div style="color: #00ff88; font-size: 2rem; font-weight: 700;">AFTER</div>
+                        <div style="color: #00ff88; font-size: 1.2rem;">6 weeks</div>
+                        <div style="color: #00ff88;">1 engineer</div>
+                    </div>
+                </div>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin: 1.5rem 0;">
+                    <div style="text-align: center; padding: 1.5rem; background: rgba(255, 51, 102, 0.1); border-radius: 10px; border: 1px solid rgba(255, 51, 102, 0.3);">
+                        <div style="color: #ff3366; font-size: 1.5rem; font-weight: 700; margin-bottom: 0.5rem;">BEFORE</div>
+                        <div style="color: #ff6699; font-size: 1rem;">~17 hours quarterly</div>
+                        <div style="color: #ff6699; font-size: 1rem;">per Product category</div>
+                    </div>
+                    <div style="text-align: center; padding: 1.5rem; background: rgba(0, 255, 136, 0.1); border-radius: 10px; border: 1px solid rgba(0, 255, 136, 0.3);">
+                        <div style="color: #00ff88; font-size: 1.5rem; font-weight: 700; margin-bottom: 0.5rem;">AFTER</div>
+                        <div style="color: #44ff99; font-size: 1.2rem;">Minutes..</div>
+                        <div style="color: #44ff99; font-size: 1rem;">Automated</div>
+                    </div>
+                </div>
+            </div>
+            <div class="section-content reveal">
+                <h2 class="section-title">RESULTS</h2>
+                <p class="section-subtitle">
+                    Transforming both development and operations
+                </p>
+                <ul class="feature-list">
+                    <li><strong>15X EFFICIENCY:</strong> 64-100 engineer-weeks → 6 engineer-weeks</li>
+                    <li><strong>AUTOMATED INSIGHTS:</strong> ~100 bug tickets per product analyzed automatically</li>
+                    <li><strong>TIME SAVINGS:</strong> ~17 hours quarterly per product category saved, estimated weekly for products with frequent eng syncs</li>
+                    <li><strong>ANALYSIS DEPTH:</strong> Comprehensive pattern recognition beyond manual capabilities</li>
+                    <li><strong>ALWAYS CURRENT:</strong> Automatically benefits from Glean's model upgrades and improvements</li>
+                </ul>
+                <div style="text-align: center; margin-top: 2rem; padding: 2rem; background: rgba(0, 255, 136, 0.1); border-radius: 15px;">
+                    <div style="color: #00ff88; font-size: 1.4rem; font-weight: 700; text-shadow: 0 0 15px rgba(0, 255, 136, 0.8);">
+                        AI didn't just power our product—it accelerated our entire development process
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 5: Philosophy -->
+    <section class="content-section" id="section-5">
+        <div class="particle-background" id="particles-5"></div>
+        <div class="content-grid" style="grid-template-columns: 1fr; justify-items: center;">
+            <div class="visual-element reveal" style="max-width: 800px; border-color: rgba(170, 68, 255, 0.4); box-shadow: 0 0 40px rgba(170, 68, 255, 0.3);">
+                <div style="width: 80px; height: 80px; margin: 0 auto 2rem auto;">
+                    <svg style="width: 100%; height: 100%; filter: drop-shadow(0 0 20px rgba(170, 68, 255, 0.8));" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                        <!-- Three interlocking circles based on the reference image -->
+                        <circle cx="100" cy="60" r="50" fill="none" stroke="#aa44ff" stroke-width="4" opacity="0.9"/>
+                        <circle cx="75" cy="120" r="50" fill="none" stroke="#00d4ff" stroke-width="4" opacity="0.9"/>
+                        <circle cx="125" cy="120" r="50" fill="none" stroke="#00ff88" stroke-width="4" opacity="0.9"/>
+                    </svg>
+                </div>
+                <h3 style="color: #aa44ff; margin-bottom: 2rem; text-shadow: 0 0 25px rgba(170, 68, 255, 0.8); font-size: 2.2rem; font-family: 'Orbitron', monospace; text-transform: uppercase; letter-spacing: 2px;">The Way of Code</h3>
+                
+                <div style="font-size: 1.1rem; color: #e8e8e8; line-height: 1.8; margin-bottom: 2rem; text-align: left; padding: 0 2rem; font-style: italic; position: relative;">
+                    Ancient engineers were profound, subtle and at one with the mysterious forces.<br>
+                    The depth of their being is not knowable.<br><br>
+                    
+                    Therefore, all we can do is describe their appearance:<br><br>
+                    
+                    Watchful, as though crossing a frozen stream.<br>
+                    Alert, as a soldier in enemy territory.<br>
+                    Respectful, as a thoughtful guest.<br>
+                    Mutable, as candle wax in blazing sun.<br>
+                    Simple, as a blank screen.<br>
+                    Hollow, as a yawning cave.<br>
+                    Opaque, as a muddy pond.<br><br>
+                    
+                    Who can wait quietly while the mud settles.<br>
+                    Who can remain still until the moment of action.<br><br>
+                    
+                    The <span style="color: #00ff88; text-shadow: 0 0 10px rgba(0, 255, 136, 0.6); font-weight: 600;">Vibe Coder</span> doesn't seek fulfillment.<br>
+                    Not seeking, not expecting,<br>
+                    he is present for all that appears.
+                </div>
+                
+                <div style="font-size: 1.1rem; color: #00d4ff; font-weight: 600; margin-top: 1.5rem; text-shadow: 0 0 15px rgba(0, 212, 255, 0.6);">
+                    Rick Rubin
+                </div>
+                <div style="font-size: 0.9rem; color: #a0a0a0; margin-top: 0.5rem; font-style: italic;">
+                    (Adapted from Lao Tzu - Tao Te Ching)
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Three.js CDN -->
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js'></script>
+    
+    <script>
+        // Three.js Setup with Pure Three.js (no external dependencies)
+        function initThreeJS() {
+            const container = document.getElementById('threejs-container');
+            
+            const renderer = new THREE.WebGLRenderer({
+                antialias: true,
+                alpha: true
+            });
+            renderer.setSize(window.innerWidth, window.innerHeight);
+            renderer.setClearColor(0x000000, 0);
+            container.appendChild(renderer.domElement);
+            
+            const scene = new THREE.Scene();
+            const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+            
+            camera.position.z = 5;
+            camera.position.y = 2;
+            
+            // Dark fog for black background
+            scene.fog = new THREE.Fog(0x000000, 1, 50);
+            
+            // Lighting setup with bright neon colors
+            const ambientLight = new THREE.AmbientLight(0x00ff88, 0.4);
+            scene.add(ambientLight);
+            
+            const light1 = new THREE.DirectionalLight(0x00ff88, 2.5);
+            light1.position.set(5, 5, 5);
+            scene.add(light1);
+            
+            const light2 = new THREE.DirectionalLight(0x00d4ff, 1.5);
+            light2.position.set(-5, -5, -5);
+            scene.add(light2);
+            
+            // Create animated wireframe grid/terrain effect
+            const geometry = new THREE.PlaneGeometry(20, 20, 32, 32);
+            const vertices = geometry.attributes.position;
+            
+            // Create wave-like terrain using sine waves
+            for (let i = 0; i < vertices.count; i++) {
+                const x = vertices.getX(i);
+                const y = vertices.getY(i);
+                const wave = Math.sin(x * 0.3) * Math.cos(y * 0.3) * 0.8;
+                vertices.setZ(i, wave);
+            }
+            
+            geometry.computeVertexNormals();
+            
+            // Bright neon wireframe materials
+            const material1 = new THREE.MeshBasicMaterial({
+                wireframe: true,
+                color: 0x00ff88,
+                transparent: true,
+                opacity: 0.9
+            });
+            
+            const material2 = new THREE.MeshBasicMaterial({
+                wireframe: true,
+                color: 0x00d4ff,
+                transparent: true,
+                opacity: 0.7
+            });
+            
+            const mesh1 = new THREE.Mesh(geometry.clone(), material1);
+            const mesh2 = new THREE.Mesh(geometry.clone(), material2);
+            
+            mesh1.rotation.x = -Math.PI / 3;
+            mesh2.rotation.x = -Math.PI / 3;
+            mesh2.position.y = -0.1;
+            
+            scene.add(mesh1);
+            scene.add(mesh2);
+            
+            // Create floating particles
+            const particleGeometry = new THREE.BufferGeometry();
+            const particleCount = 1500;
+            const particlePositions = new Float32Array(particleCount * 3);
+            
+            for (let i = 0; i < particleCount * 3; i += 3) {
+                particlePositions[i] = (Math.random() - 0.5) * 50;
+                particlePositions[i + 1] = (Math.random() - 0.5) * 50;
+                particlePositions[i + 2] = (Math.random() - 0.5) * 50;
+            }
+            
+            particleGeometry.setAttribute('position', new THREE.BufferAttribute(particlePositions, 3));
+            
+            const particleMaterial = new THREE.PointsMaterial({
+                color: 0xff3366,
+                size: 0.15,
+                transparent: true,
+                opacity: 0.8
+            });
+            
+            const particles = new THREE.Points(particleGeometry, particleMaterial);
+            scene.add(particles);
+            
+            // Animation loop
+            let time = 0;
+            function animate() {
+                requestAnimationFrame(animate);
+                time += 0.01;
+                
+                // Animate terrain waves
+                const vertices1 = mesh1.geometry.attributes.position;
+                const vertices2 = mesh2.geometry.attributes.position;
+                
+                for (let i = 0; i < vertices1.count; i++) {
+                    const x = vertices1.getX(i);
+                    const y = vertices1.getY(i);
+                    const wave1 = Math.sin(x * 0.3 + time) * Math.cos(y * 0.3 + time) * 0.8;
+                    const wave2 = Math.sin(x * 0.2 + time * 1.1) * Math.cos(y * 0.4 + time * 0.9) * 0.6;
+                    
+                    vertices1.setZ(i, wave1);
+                    vertices2.setZ(i, wave2);
+                }
+                
+                vertices1.needsUpdate = true;
+                vertices2.needsUpdate = true;
+                
+                // Rotate meshes
+                mesh1.rotation.z += 0.002;
+                mesh2.rotation.z -= 0.001;
+                
+                // Animate particles
+                particles.rotation.y += 0.001;
+                
+                renderer.render(scene, camera);
+            }
+            
+            animate();
+            
+            // Handle resize
+            window.addEventListener('resize', function() {
+                camera.aspect = window.innerWidth / window.innerHeight;
+                camera.updateProjectionMatrix();
+                renderer.setSize(window.innerWidth, window.innerHeight);
+            });
+        }
+        
+        // Generate floating particles for intro section
+        function generateParticles() {
+            const container = document.querySelector('.floating-particles');
+            for (let i = 0; i < 25; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.top = Math.random() * 100 + '%';
+                particle.style.animationDelay = Math.random() * 8 + 's';
+                particle.style.animationDuration = (4 + Math.random() * 4) + 's';
+                container.appendChild(particle);
+            }
+        }
+        
+        // Create particle system for content sections
+        function createParticleSystem(containerId, color) {
+            const container = document.getElementById(containerId);
+            if (!container) return;
+            
+            const totalObjects = 6000;
+            const movementSpeed = 2;
+            const rotationAmount = 1.2;
+            
+            let rotated = false;
+            
+            const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 1, 10000);
+            camera.position.z = 2000;
+            camera.position.x = -8000;
+            
+            const scene = new THREE.Scene();
+            scene.fog = new THREE.FogExp2(0x000000, 0.0003);
+            
+            const geometry = new THREE.BufferGeometry();
+            const positions = new Float32Array(totalObjects * 3);
+            
+            for (let i = 0; i < totalObjects * 3; i += 3) {
+                positions[i] = Math.random() * 30000 - 15000;
+                positions[i + 1] = Math.random() * 5000 - 2500;
+                positions[i + 2] = Math.random() * 5000 - 2500;
+            }
+            
+            geometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+            
+            const material = new THREE.PointsMaterial({ 
+                size: 5,
+                color: color,
+                transparent: true,
+                opacity: 0.9
+            });
+            
+            const particles = new THREE.Points(geometry, material);
+            scene.add(particles);
+            
+            const renderer = new THREE.WebGLRenderer({ 
+                alpha: true,
+                antialias: true 
+            });
+            renderer.setSize(container.offsetWidth, container.offsetHeight);
+            renderer.setClearColor(0x000000, 0);
+            container.appendChild(renderer.domElement);
+            
+            function render() {
+                requestAnimationFrame(render);
+                
+                if (!rotated && camera.position.x < 8000) {
+                    if (camera.position.x > 7000) {
+                        rotated = true;
+                        if (camera.rotation.y < rotationAmount) {
+                            camera.rotation.y += 0.006;
+                            rotated = false;
+                        }
+                        if (camera.position.z > -2000) {
+                            camera.position.z -= 12;
+                            rotated = false;
+                        }
+                    } else {
+                        camera.position.x += movementSpeed;
+                    }
+                } else if (rotated && camera.position.x > -8000) {
+                    if (camera.position.x < -7000) {
+                        rotated = false;
+                        if (camera.rotation.y > 0) {
+                            camera.rotation.y -= 0.006;
+                            rotated = true;
+                        }
+                        if (camera.position.z < 2000) {
+                            camera.position.z += 12;
+                            rotated = true;
+                        }
+                    } else {
+                        camera.position.x -= movementSpeed;
+                    }
+                }
+                
+                renderer.render(scene, camera);
+            }
+            
+            render();
+            
+            const handleResize = () => {
+                camera.aspect = container.offsetWidth / container.offsetHeight;
+                camera.updateProjectionMatrix();
+                renderer.setSize(container.offsetWidth, container.offsetHeight);
+            };
+            
+            window.addEventListener('resize', handleResize);
+            
+            return { renderer, scene, camera, handleResize };
+        }
+        
+        // Initialize particle systems for each section with bright colors
+        function initParticleSystems() {
+            createParticleSystem('particles-1', 0xff3366); // Red for traditional software development
+            createParticleSystem('particles-2', 0x00ff88); // Green for AI-accelerated effort (Vibe Coding)
+            createParticleSystem('particles-3', 0x00d4ff); // Blue for architecture
+            createParticleSystem('particles-4', 0x00ff88); // Green for results
+            createParticleSystem('particles-5', 0xaa44ff); // Purple for philosophy
+        }
+        
+        // Intersection Observer for reveal animations
+        function setupRevealAnimations() {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('active');
+                    }
+                });
+            }, { threshold: 0.2 });
+            
+            document.querySelectorAll('.reveal').forEach(el => {
+                observer.observe(el);
+            });
+        }
+        
+        // Navigation functionality
+        function setupNavigation() {
+            const navDots = document.querySelectorAll('.nav-dot');
+            const sections = document.querySelectorAll('section');
+            
+            navDots.forEach((dot, index) => {
+                dot.addEventListener('click', () => {
+                    sections[index].scrollIntoView({ behavior: 'smooth' });
+                });
+            });
+            
+            // Update active nav dot on scroll
+            window.addEventListener('scroll', () => {
+                let current = 0;
+                sections.forEach((section, index) => {
+                    const rect = section.getBoundingClientRect();
+                    if (rect.top <= window.innerHeight / 2 && rect.bottom >= window.innerHeight / 2) {
+                        current = index;
+                    }
+                });
+                
+                navDots.forEach((dot, index) => {
+                    dot.classList.toggle('active', index === current);
+                });
+            });
+        }
+        
+        // Scroll to next section
+        function scrollToNext() {
+            document.getElementById('section-1').scrollIntoView({ behavior: 'smooth' });
+        }
+        
+        // Initialize everything
+        document.addEventListener('DOMContentLoaded', function() {
+            initThreeJS();
+            generateParticles();
+            initParticleSystems();
+            setupRevealAnimations();
+            setupNavigation();
+        });
+    </script>
+</body>
+</html>
