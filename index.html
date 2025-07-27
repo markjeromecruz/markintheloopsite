@@ -29,7 +29,7 @@
             top: 0;
             z-index: 100;
             border-bottom: 1px solid rgba(80, 235, 151, 0.2);
-        }
+            }
 
         .nav {
             max-width: 1200px;
@@ -39,7 +39,7 @@
             justify-content: space-between;
             align-items: center;
         }
-
+        
         .logo img {
             max-height: 40px;
         }
@@ -49,7 +49,7 @@
             gap: 2rem;
             list-style: none;
         }
-
+        
         .nav-links a {
             text-decoration: none;
             color: #ffffff;
@@ -71,7 +71,7 @@
             padding: 0;
             z-index: 101;
         }
-
+        
         .hamburger .bar {
             display: block;
             width: 25px;
@@ -151,7 +151,7 @@
             grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
             gap: 2rem;
         }
-
+        
         .series-card {
             background: rgba(80, 235, 151, 0.05);
             backdrop-filter: blur(15px);
@@ -167,7 +167,7 @@
             transform: translateY(-5px);
             box-shadow: 0 10px 50px rgba(80, 235, 151, 0.4);
         }
-
+        
         .series-number {
             display: inline-block;
             background: linear-gradient(45deg, #50EB97, #FD9F5B);
@@ -191,7 +191,7 @@
             color: #e8e8e8;
             margin-bottom: 1.5rem;
         }
-
+        
         .tech-stack {
             display: flex;
             flex-wrap: wrap;
@@ -214,7 +214,7 @@
             padding-top: 1rem;
             border-top: 1px solid rgba(80, 235, 151, 0.2);
         }
-
+        
         .resources-list a {
             color: #50EB97;
             text-decoration: none;
@@ -254,14 +254,14 @@
              background: rgba(80, 235, 151, 0.2);
              color: #50EB97;
         }
-
+        
         .filter-tab.active {
             background: linear-gradient(45deg, #50EB97, #FD9F5B);
             color: #000;
             border-color: #50EB97;
             box-shadow: 0 0 20px rgba(80, 235, 151, 0.5);
         }
-
+        
         .resources-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -325,7 +325,7 @@
             background-color: rgba(0, 0, 0, 0.7);
             backdrop-filter: blur(5px);
         }
-
+        
         .prompt-modal-content {
             background-color: #000;
             border: 2px solid #50EB97;
@@ -374,7 +374,7 @@
              color: #000;
              border: none;
         }
-
+        
         .close-btn {
             background: transparent;
             color: #fff;
@@ -484,8 +484,8 @@
 
             .nav-links a {
                 font-size: 1.5rem;
-            }
-
+        }
+        
             .hamburger {
                 display: block;
             }
@@ -499,7 +499,7 @@
             .hamburger.active .bar:nth-child(3) {
                 transform: translateY(-8px) rotate(-45deg);
             }
-
+            
             .main-title {
                 font-size: 2.5rem;
             }
@@ -565,8 +565,8 @@
                         <li><a href="https://www.python.org/downloads/" target="_blank">Python Download</a></li>
                         <li><a href="https://apps.apple.com/us/app/xcode/id497799835?mt=12" target="_blank">Xcode from App Store</a></li>
                         <li><a href="http://sublimetext.com" target="_blank">Sublime Text Editor</a></li>
-                    </ul>
-                </div>
+                </ul>
+            </div>
     
                 <div class="series-card" onclick="toggleResources('part2')">
                     <div class="series-number">Part 2</div>
@@ -578,20 +578,20 @@
                         <span class="tech-tag">Local AI</span>
                         <span class="tech-tag">Translation</span>
                         <span class="tech-tag">Privacy</span>
-                    </div>
+            </div>
                     <ul class="resources-list" id="part2-resources" style="display: none;">
                         <li><a href="https://github.com/markjeromecruz/languageAssist" target="_blank">Language Assistant Repository</a></li>
                         <li><a href="https://chatgpt.com/share/682c2315-c5a0-800d-a253-c54ca19e9124" target="_blank">Complete ChatGPT Prompt</a></li>
                         <li><a href="#" onclick="showPrompt('modify-ui')">UI Modification Prompt</a></li>
                         <li><a href="https://ollama.ai" target="_blank">Ollama Download</a></li>
-                    </ul>
-                </div>
+                </ul>
+            </div>
     
                 <div class="series-card" onclick="toggleResources('part3')">
                     <div class="series-number">Part 3</div>
                     <h3>AI App That "Sees" Productivity</h3>
                     <p>Build a computer vision app that monitors your productivity in real-time using your MacBook's camera.</p>
-                    <a href="https://youtu.be/tvYn3ITu6ys?si=iNv6aLIBLCB5HV4j" target="_blank" class="resource-link" style="display: block; margin-bottom: 1.5rem; font-weight: 700;">Watch Now →</a>
+                    <a href="https://www.youtube.com/watch?v=Dh5WGiFfhKQ" target="_blank" class="resource-link" style="display: block; margin-bottom: 1.5rem; font-weight: 700;">Watch Now →</a>
                     <div class="tech-stack">
                         <span class="tech-tag">Computer Vision</span>
                         <span class="tech-tag">SmolVLM</span>
@@ -604,27 +604,27 @@
                         <li><a href="https://www.augmentcode.com/" target="_blank">Cursor IDE Download</a></li>
                         <li><a href="#" onclick="showPrompt('cursor-improve')">Cursor Improvement Prompt</a></li>
                     </ul>
-                </div>
-    
+                    </div>
+                    
                 <div class="series-card" onclick="toggleResources('part4')">
                     <div class="series-number">Part 4</div>
-                    <h3>Vision AI with Llama - Advanced Computer Vision</h3>
-                    <p>Take computer vision to the next level with Llama models. Build advanced AI applications that can see and understand the world around them.</p>
+                    <h3>I Built an AI App That "Sees" Productivity on my MacBook</h3>
+                    <p>Advanced computer vision application that monitors productivity in real-time using your MacBook's camera with enhanced AI capabilities.</p>
                     <a href="https://youtu.be/tvYn3ITu6ys?si=iNv6aLIBLCB5HV4j" target="_blank" class="resource-link" style="display: block; margin-bottom: 1.5rem; font-weight: 700;">Watch Now →</a>
                     <div class="tech-stack">
-                        <span class="tech-tag">Llama Vision</span>
                         <span class="tech-tag">Computer Vision</span>
-                        <span class="tech-tag">AI Models</span>
+                        <span class="tech-tag">SmolVLM</span>
+                        <span class="tech-tag">Webcam AI</span>
                         <span class="tech-tag">Cursor IDE</span>
                     </div>
                     <ul class="resources-list" id="part4-resources" style="display: none;">
-                        <li><a href="https://github.com/ngxson/smolvlm-realtime-webcam" target="_blank">Original Vision Demo</a></li>
-                        <li><a href="https://github.com/markjeromecruz/AI-Productivity" target="_blank">Mark's AI Productivity App</a></li>
+                        <li><a href="https://github.com/ngxson/smolvlm-realtime-webcam" target="_blank">Original SmolVLM Demo</a></li>
+                        <li><a href="https://github.com/markjeromecruz/AI-Productivity" target="_blank">Mark's Productivity Tracker</a></li>
                         <li><a href="https://www.augmentcode.com/" target="_blank">Cursor IDE Download</a></li>
                         <li><a href="#" onclick="showPrompt('cursor-improve')">Cursor Improvement Prompt</a></li>
                     </ul>
                 </div>
-    
+
                 <div class="series-card" onclick="toggleResources('special')">
                     <div class="series-number">Special</div>
                     <h3>LlamaCon 2025 - What Happened!</h3>
@@ -658,8 +658,8 @@
                 <button class="filter-tab" onclick="filterResources('tools', this)">AI Tools</button>
                 <button class="filter-tab" onclick="filterResources('code', this)">Source Code</button>
                 <button class="filter-tab" onclick="filterResources('prompts', this)">Prompts</button>
-            </div>
-    
+                    </div>
+                    
             <div class="resources-grid" id="resources-container">
                 <!-- Downloads -->
                 <div class="resource-card" data-category="downloads">
@@ -667,39 +667,39 @@
                     <h4>Python 3.x</h4>
                     <p>Official Python interpreter for macOS. Essential foundation for all AI development.</p>
                     <a href="https://www.python.org/downloads/" class="resource-link" target="_blank">Download from Python.org →</a>
-                </div>
+                    </div>
                 <div class="resource-card" data-category="downloads">
                     <div class="resource-type">Download</div>
                     <h4>Ollama</h4>
                     <p>Run large language models locally on your MacBook with complete privacy.</p>
                     <a href="https://ollama.ai" class="resource-link" target="_blank">Download Ollama →</a>
-                </div>
+                    </div>
                 <div class="resource-card" data-category="downloads">
                     <div class="resource-type">Download</div>
                     <h4>Cursor IDE</h4>
                     <p>AI-powered code editor that writes and improves code with intelligent suggestions.</p>
                     <a href="https://www.augmentcode.com/" class="resource-link" target="_blank">Download Cursor →</a>
-                </div>
+                    </div>
                 <div class="resource-card" data-category="downloads">
                     <div class="resource-type">Download</div>
                     <h4>Xcode</h4>
                     <p>Apple's development tools including essential command line utilities for Mac development.</p>
                     <a href="https://apps.apple.com/us/app/xcode/id497799835?mt=12" class="resource-link" target="_blank">Download from App Store →</a>
-                </div>
+                    </div>
                 <div class="resource-card" data-category="downloads">
                     <div class="resource-type">Download</div>
                     <h4>Sublime Text</h4>
                     <p>Lightweight, powerful text editor perfect for editing Python scripts and configuration files.</p>
                     <a href="http://sublimetext.com" class="resource-link" target="_blank">Download Sublime Text →</a>
                 </div>
-    
+                
                 <!-- AI Tools -->
                 <div class="resource-card" data-category="tools">
                     <div class="resource-type">AI Tool</div>
                     <h4>ChatGPT</h4>
                     <p>Web-based AI assistant for code generation, debugging, and prompt engineering.</p>
                     <a href="https://chat.openai.com" class="resource-link" target="_blank">Open ChatGPT →</a>
-                </div>
+                    </div>
                 <div class="resource-card" data-category="tools">
                     <div class="resource-type">AI Tool</div>
                     <h4>Claude</h4>
@@ -711,7 +711,7 @@
                     <h4>Llama API Preview</h4>
                     <p>Sign up for early access to Meta's Llama API for building AI applications.</p>
                     <a href="https://llama.developer.meta.com/join_waitlist" class="resource-link" target="_blank">Join Waitlist →</a>
-                </div>
+            </div>
                 <div class="resource-card" data-category="tools">
                     <div class="resource-type">Resource</div>
                     <h4>Llama Cookbook</h4>
@@ -725,17 +725,17 @@
                     <h4>Quick Python Start</h4>
                     <p>Complete GitHub repository for Part 1 with CSV visualization and setup files.</p>
                     <a href="https://github.com/markjeromecruz/quickPythonStart" class="resource-link" target="_blank">View on GitHub →</a>
-                </div>
+                    </div>
                 <div class="resource-card" data-category="code">
                     <div class="resource-type">Source Code</div>
                     <h4>Language Assistant</h4>
                     <p>Full implementation of the local AI translation assistant from Part 2.</p>
                     <a href="https://github.com/markjeromecruz/languageAssist" class="resource-link" target="_blank">View on GitHub →</a>
-                </div>
+                    </div>
                 <div class="resource-card" data-category="code">
                     <div class="resource-type">Source Code</div>
                     <h4>AI Productivity Tracker</h4>
-                    <p>Mark's version of the computer vision productivity monitoring application from Parts 3 & 4.</p>
+                    <p>Mark's version of the computer vision productivity monitoring application from Part 3.</p>
                     <a href="https://github.com/markjeromecruz/AI-Productivity" class="resource-link" target="_blank">View on GitHub →</a>
                 </div>
                 <div class="resource-card" data-category="code">
@@ -743,13 +743,13 @@
                     <h4>SmolVLM Original Demo</h4>
                     <p>Original computer vision demo repository that inspired the productivity tracker.</p>
                     <a href="https://github.com/ngxson/smolvlm-realtime-webcam" class="resource-link" target="_blank">View on GitHub →</a>
-                </div>
+                    </div>
                 <div class="resource-card" data-category="code">
                     <div class="resource-type">Source Code</div>
                     <h4>Meta Synthetic Data Kit</h4>
                     <p>Official Meta toolkit for generating synthetic training data using Llama models.</p>
                     <a href="https://github.com/meta-llama/synthetic-data-kit" class="resource-link" target="_blank">View on GitHub →</a>
-                </div>
+                    </div>
     
                 <!-- Prompts -->
                 <div class="resource-card" data-category="prompts">
@@ -763,7 +763,7 @@
                     <h4>UI Modification Prompt</h4>
                     <p>Ready-to-use prompt for improving the visual design of your Python applications.</p>
                     <a href="#" class="resource-link" onclick="showPrompt('modify-ui')">Copy Prompt →</a>
-                </div>
+            </div>
                 <div class="resource-card" data-category="prompts">
                     <div class="resource-type">Prompt</div>
                     <h4>Cursor App Improvement</h4>
@@ -850,184 +850,184 @@
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             // Three.js Setup
-            function initThreeJS() {
-                const container = document.getElementById('threejs-container');
+        function initThreeJS() {
+            const container = document.getElementById('threejs-container');
                 if (!container) return;
-                
-                const renderer = new THREE.WebGLRenderer({
-                    antialias: true,
-                    alpha: true
-                });
-                renderer.setSize(window.innerWidth, window.innerHeight);
-                renderer.setClearColor(0x000000, 0);
-                container.appendChild(renderer.domElement);
-                
-                const scene = new THREE.Scene();
-                const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-                
-                camera.position.z = 5;
-                camera.position.y = 2;
-                
-                scene.fog = new THREE.Fog(0x000000, 1, 50);
-                
+            
+            const renderer = new THREE.WebGLRenderer({
+                antialias: true,
+                alpha: true
+            });
+            renderer.setSize(window.innerWidth, window.innerHeight);
+            renderer.setClearColor(0x000000, 0);
+            container.appendChild(renderer.domElement);
+            
+            const scene = new THREE.Scene();
+            const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+            
+            camera.position.z = 5;
+            camera.position.y = 2;
+            
+            scene.fog = new THREE.Fog(0x000000, 1, 50);
+            
                 const ambientLight = new THREE.AmbientLight(0x50EB97, 0.4);
-                scene.add(ambientLight);
-                
+            scene.add(ambientLight);
+            
                 const light1 = new THREE.DirectionalLight(0x50EB97, 2.5);
-                light1.position.set(5, 5, 5);
-                scene.add(light1);
-                
+            light1.position.set(5, 5, 5);
+            scene.add(light1);
+            
                 const light2 = new THREE.DirectionalLight(0xFD9F5B, 1.5);
-                light2.position.set(-5, -5, -5);
-                scene.add(light2);
-                
-                const geometry = new THREE.PlaneGeometry(20, 20, 32, 32);
-                const vertices = geometry.attributes.position;
-                
-                for (let i = 0; i < vertices.count; i++) {
-                    const x = vertices.getX(i);
-                    const y = vertices.getY(i);
-                    const wave = Math.sin(x * 0.3) * Math.cos(y * 0.3) * 0.8;
-                    vertices.setZ(i, wave);
-                }
-                
-                geometry.computeVertexNormals();
-                
-                const material1 = new THREE.MeshBasicMaterial({
-                    wireframe: true,
-                    color: 0x50EB97,
-                    transparent: true,
-                    opacity: 0.9
-                });
-                
-                const material2 = new THREE.MeshBasicMaterial({
-                    wireframe: true,
-                    color: 0xFD9F5B,
-                    transparent: true,
-                    opacity: 0.7
-                });
-                
-                const mesh1 = new THREE.Mesh(geometry.clone(), material1);
-                const mesh2 = new THREE.Mesh(geometry.clone(), material2);
-                
-                mesh1.rotation.x = -Math.PI / 3;
-                mesh2.rotation.x = -Math.PI / 3;
-                mesh2.position.y = -0.1;
-                
-                scene.add(mesh1);
-                scene.add(mesh2);
-                
-                const particleGeometry = new THREE.BufferGeometry();
-                const particleCount = 1500;
-                const particlePositions = new Float32Array(particleCount * 3);
-                
-                for (let i = 0; i < particleCount * 3; i += 3) {
-                    particlePositions[i] = (Math.random() - 0.5) * 50;
-                    particlePositions[i + 1] = (Math.random() - 0.5) * 50;
-                    particlePositions[i + 2] = (Math.random() - 0.5) * 50;
-                }
-                
-                particleGeometry.setAttribute('position', new THREE.BufferAttribute(particlePositions, 3));
-                
-                const particleMaterial = new THREE.PointsMaterial({
-                    color: 0xFD9F5B,
-                    size: 0.15,
-                    transparent: true,
-                    opacity: 0.8
-                });
-                
-                const particles = new THREE.Points(particleGeometry, particleMaterial);
-                scene.add(particles);
-                
-                let time = 0;
-                function animate() {
-                    requestAnimationFrame(animate);
-                    time += 0.01;
-                    
-                    const vertices1 = mesh1.geometry.attributes.position;
-                    const vertices2 = mesh2.geometry.attributes.position;
-                    
-                    for (let i = 0; i < vertices1.count; i++) {
-                        const x = vertices1.getX(i);
-                        const y = vertices1.getY(i);
-                        const wave1 = Math.sin(x * 0.3 + time) * Math.cos(y * 0.3 + time) * 0.8;
-                        const wave2 = Math.sin(x * 0.2 + time * 1.1) * Math.cos(y * 0.4 + time * 0.9) * 0.6;
-                        
-                        vertices1.setZ(i, wave1);
-                        vertices2.setZ(i, wave2);
-                    }
-                    
-                    vertices1.needsUpdate = true;
-                    vertices2.needsUpdate = true;
-                    
-                    mesh1.rotation.z += 0.002;
-                    mesh2.rotation.z -= 0.001;
-                    particles.rotation.y += 0.001;
-                    
-                    renderer.render(scene, camera);
-                }
-                
-                animate();
-                
-                window.addEventListener('resize', function() {
-                    camera.aspect = window.innerWidth / window.innerHeight;
-                    camera.updateProjectionMatrix();
-                    renderer.setSize(window.innerWidth, window.innerHeight);
-                });
-            }
-
-            // Generate floating particles
-            function generateParticles() {
-                const container = document.querySelector('.floating-particles');
-                if (!container) return;
-                for (let i = 0; i < 25; i++) {
-                    const particle = document.createElement('div');
-                    particle.className = 'particle';
-                    particle.style.left = Math.random() * 100 + '%';
-                    particle.style.top = Math.random() * 100 + '%';
-                    particle.style.animationDelay = Math.random() * 8 + 's';
-                    particle.style.animationDuration = (4 + Math.random() * 4) + 's';
-                    container.appendChild(particle);
-                }
+            light2.position.set(-5, -5, -5);
+            scene.add(light2);
+            
+            const geometry = new THREE.PlaneGeometry(20, 20, 32, 32);
+            const vertices = geometry.attributes.position;
+            
+            for (let i = 0; i < vertices.count; i++) {
+                const x = vertices.getX(i);
+                const y = vertices.getY(i);
+                const wave = Math.sin(x * 0.3) * Math.cos(y * 0.3) * 0.8;
+                vertices.setZ(i, wave);
             }
             
-            // Background Particle Systems
-            function createParticleSystem(containerId, color) {
-                const container = document.getElementById(containerId);
-                if (!container) return;
+            geometry.computeVertexNormals();
+            
+            const material1 = new THREE.MeshBasicMaterial({
+                wireframe: true,
+                    color: 0x50EB97,
+                transparent: true,
+                opacity: 0.9
+            });
+            
+            const material2 = new THREE.MeshBasicMaterial({
+                wireframe: true,
+                    color: 0xFD9F5B,
+                transparent: true,
+                opacity: 0.7
+            });
+            
+            const mesh1 = new THREE.Mesh(geometry.clone(), material1);
+            const mesh2 = new THREE.Mesh(geometry.clone(), material2);
+            
+            mesh1.rotation.x = -Math.PI / 3;
+            mesh2.rotation.x = -Math.PI / 3;
+            mesh2.position.y = -0.1;
+            
+            scene.add(mesh1);
+            scene.add(mesh2);
+            
+            const particleGeometry = new THREE.BufferGeometry();
+            const particleCount = 1500;
+            const particlePositions = new Float32Array(particleCount * 3);
+            
+            for (let i = 0; i < particleCount * 3; i += 3) {
+                particlePositions[i] = (Math.random() - 0.5) * 50;
+                particlePositions[i + 1] = (Math.random() - 0.5) * 50;
+                particlePositions[i + 2] = (Math.random() - 0.5) * 50;
+            }
+            
+            particleGeometry.setAttribute('position', new THREE.BufferAttribute(particlePositions, 3));
+            
+            const particleMaterial = new THREE.PointsMaterial({
+                    color: 0xFD9F5B,
+                size: 0.15,
+                transparent: true,
+                opacity: 0.8
+            });
+            
+            const particles = new THREE.Points(particleGeometry, particleMaterial);
+            scene.add(particles);
+            
+            let time = 0;
+            function animate() {
+                requestAnimationFrame(animate);
+                time += 0.01;
                 
-                const scene = new THREE.Scene();
+                const vertices1 = mesh1.geometry.attributes.position;
+                const vertices2 = mesh2.geometry.attributes.position;
+                
+                for (let i = 0; i < vertices1.count; i++) {
+                    const x = vertices1.getX(i);
+                    const y = vertices1.getY(i);
+                    const wave1 = Math.sin(x * 0.3 + time) * Math.cos(y * 0.3 + time) * 0.8;
+                    const wave2 = Math.sin(x * 0.2 + time * 1.1) * Math.cos(y * 0.4 + time * 0.9) * 0.6;
+                    
+                    vertices1.setZ(i, wave1);
+                    vertices2.setZ(i, wave2);
+                }
+                
+                vertices1.needsUpdate = true;
+                vertices2.needsUpdate = true;
+                
+                mesh1.rotation.z += 0.002;
+                mesh2.rotation.z -= 0.001;
+                particles.rotation.y += 0.001;
+                
+                renderer.render(scene, camera);
+            }
+            
+            animate();
+            
+            window.addEventListener('resize', function() {
+                camera.aspect = window.innerWidth / window.innerHeight;
+                camera.updateProjectionMatrix();
+                renderer.setSize(window.innerWidth, window.innerHeight);
+            });
+        }
+        
+            // Generate floating particles
+        function generateParticles() {
+            const container = document.querySelector('.floating-particles');
+                if (!container) return;
+            for (let i = 0; i < 25; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.top = Math.random() * 100 + '%';
+                particle.style.animationDelay = Math.random() * 8 + 's';
+                particle.style.animationDuration = (4 + Math.random() * 4) + 's';
+                container.appendChild(particle);
+            }
+        }
+        
+            // Background Particle Systems
+        function createParticleSystem(containerId, color) {
+            const container = document.getElementById(containerId);
+            if (!container) return;
+            
+            const scene = new THREE.Scene();
                 const camera = new THREE.PerspectiveCamera(75, container.offsetWidth / container.offsetHeight, 1, 3000);
                 camera.position.z = 1000;
-
-                const geometry = new THREE.BufferGeometry();
+            
+            const geometry = new THREE.BufferGeometry();
                 const vertices = [];
                 const particleCount = 500;
-
+            
                 for (let i = 0; i < particleCount; i++) {
                     const x = Math.random() * 2000 - 1000;
                     const y = Math.random() * 2000 - 1000;
                     const z = Math.random() * 2000 - 1000;
                     vertices.push(x, y, z);
-                }
-
+            }
+            
                 geometry.setAttribute('position', new THREE.Float32BufferAttribute(vertices, 3));
-
-                const material = new THREE.PointsMaterial({
-                    color: color,
+            
+            const material = new THREE.PointsMaterial({ 
+                color: color,
                     size: 2,
-                    transparent: true,
+                transparent: true,
                     opacity: 0.7
-                });
-
-                const particles = new THREE.Points(geometry, material);
-                scene.add(particles);
-
+            });
+            
+            const particles = new THREE.Points(geometry, material);
+            scene.add(particles);
+            
                 const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
-                renderer.setSize(container.offsetWidth, container.offsetHeight);
-                renderer.setClearColor(0x000000, 0);
-                container.appendChild(renderer.domElement);
-                
+            renderer.setSize(container.offsetWidth, container.offsetHeight);
+            renderer.setClearColor(0x000000, 0);
+            container.appendChild(renderer.domElement);
+            
                 function animate() {
                     requestAnimationFrame(animate);
                     particles.rotation.x += 0.0005;
@@ -1125,8 +1125,8 @@
                     }
                 });
             });
-
-            // Intersection Observer for reveal animations
+        
+        // Intersection Observer for reveal animations
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
@@ -1138,16 +1138,16 @@
             document.querySelectorAll('.series-card, .resource-card, .visual-element').forEach(el => {
                 observer.observe(el);
             });
-
+        
             // Mobile Navigation
             const hamburger = document.querySelector('.hamburger');
             const navLinks = document.querySelector('.nav-links');
             const links = document.querySelectorAll('.nav-links li a');
-
+            
             hamburger.addEventListener('click', () => {
                 navLinks.classList.toggle('active');
                 hamburger.classList.toggle('active');
-            });
+                });
 
             links.forEach(link => {
                 link.addEventListener('click', () => {
@@ -1157,7 +1157,7 @@
                     }
                 });
             });
-
+        
             // Initializations
             initThreeJS();
             generateParticles();
